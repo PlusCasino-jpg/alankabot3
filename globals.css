@@ -1,0 +1,54 @@
+import Link from "next/link";
+import { Download } from "lucide-react";
+
+const downloads = [
+  { emoji: "🛡️", name: "Malwarebytes Premium", meta: "Windows • 94 MB • إصدار 5.1", tag: "مجاني", bg: "bg-indigo-50", href: "/downloads/malwarebytes" },
+  { emoji: "🎬", name: "VLC Media Player", meta: "Windows / Mac / Linux • 45 MB • إصدار 3.0", tag: "مجاني", bg: "bg-orange-50", href: "/downloads/vlc" },
+  { emoji: "🗜️", name: "WinRAR 7", meta: "Windows • 3.2 MB • إصدار 7.0", tag: "مجاني", bg: "bg-emerald-50", href: "/downloads/winrar" },
+  { emoji: "🎨", name: "GIMP — محرر الصور", meta: "Windows / Mac / Linux • 200 MB • إصدار 2.10", tag: "مفتوح المصدر", bg: "bg-purple-50", href: "/downloads/gimp" },
+];
+
+export default function DownloadsSection() {
+  return (
+    <section className="py-12 px-6 border-b border-gray-100">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="flex items-baseline justify-between mb-6">
+          <h2 className="text-2xl font-semibold text-[#1F1F1F]">
+            ⬇️ العنكبوت <span className="text-[#0067B8]">للتحميلات</span>
+          </h2>
+          <Link href="/downloads" className="text-[13px] text-[#0067B8] hover:underline">
+            عرض الكل ←
+          </Link>
+        </div>
+        <div className="flex flex-col gap-3">
+          {downloads.map((d) => (
+            <div
+              key={d.href}
+              className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:border-[#0067B8] transition-colors group"
+            >
+              <div className={`w-11 h-11 ${d.bg} rounded-xl flex items-center justify-center text-2xl shrink-0`}>
+                {d.emoji}
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-[14px] font-medium text-gray-900 group-hover:text-[#0067B8] transition-colors">
+                  {d.name}
+                </h3>
+                <p className="text-[12px] text-gray-400 mt-0.5">{d.meta}</p>
+              </div>
+              <span className="text-[11px] text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full hidden sm:block">
+                {d.tag}
+              </span>
+              <Link
+                href={d.href}
+                className="flex items-center gap-1.5 bg-[#0067B8] text-white text-[12px] px-4 py-2 rounded-lg hover:bg-[#005a9e] transition-colors shrink-0"
+              >
+                <Download size={13} />
+                تحميل
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

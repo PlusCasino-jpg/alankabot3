@@ -1,0 +1,25 @@
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import GamesSection from "@/components/sections/GamesSection";
+import TutorialsSection from "@/components/sections/TutorialsSection";
+import DownloadsSection from "@/components/sections/DownloadsSection";
+import ForumSection from "@/components/sections/ForumSection";
+import SouqSection from "@/components/sections/SouqSection";
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <main>
+        <HeroSection />
+        <GamesSection />
+        <TutorialsSection />
+        <DownloadsSection />
+        <ForumSection />
+        <SouqSection />
+      </main>
+      <Footer />
+    </>
+  );
+}
